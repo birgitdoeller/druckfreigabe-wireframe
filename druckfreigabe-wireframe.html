@@ -500,7 +500,7 @@
 <!-- Tab navigation -->
 <div class="tab-nav">
   <button class="active" onclick="showTab(0)">1 — Motivzuordnung abschließen + Consent Modal</button>
-  <button onclick="showTab(1)">2 — Motivübersicht: Opt-Out-Fenster (Kunde, Option A)</button>
+  <button onclick="showTab(1)">2 — Motivübersicht: Opt-Out-Fenster läuft (Kunde, aktive Freigabe)</button>
   <button onclick="showTab(2)">3 — Motivübersicht: Opt-Out-Fenster (Kunde, Option B)</button>
   <button onclick="showTab(3)">3b — Option B: Modal "Nicht freigeben"</button>
   <button onclick="showTab(4)">4 — Motivübersicht: Opt-Out-Fenster (Manager)</button>
@@ -600,11 +600,11 @@
      SCREEN 2 — Motivübersicht: window open, Kunde, Option A
 ════════════════════════════════════════════════════ -->
 <div class="screen" id="screen-1">
-  <div class="screen-title">Screen 2 — Geändert · Option A</div>
-  <div class="screen-subtitle">Motivübersicht — Opt-Out-Fenster läuft (Kunde, Option A)</div>
+  <div class="screen-title">Screen 2 — Geändert</div>
+  <div class="screen-subtitle">Motivübersicht — Opt-Out-Fenster läuft (Kunde möchte aktiv freigeben)</div>
   <div class="screen-desc">
-    Status zeigt Frist statt generischem "Druckfreigabe nötig". Button "Druckfreigabe" öffnet das bestehende Modal mit Freigabe- und Nicht-Freigabe-Option.
-    <span class="changed-tag">GEÄNDERT: Status-Label</span>
+    Kunde öffnet die Seite während das Opt-Out-Fenster läuft und möchte das Motiv aktiv freigeben. Status zeigt automatische Freigabe. Klick auf „Druckfreigabe" erteilt die Freigabe sofort — kein Modal.
+    <span class="changed-tag">GEÄNDERT: Status-Badge, kein Modal</span>
   </div>
 
   <div class="page-chrome">
@@ -641,14 +641,15 @@
             <td><span class="link">Termine 11–12 (21.04.2026 – 12.05.2026)</span></td>
             <td>10.04.2026</td>
             <td>
-              <div class="status approval-needed">
+              <div class="status auto-pending">
                 <span class="icon">⏳</span>
-                Druckfreigabe nötig bis<br>
-                <strong>10.04.2026, 14:00 Uhr</strong>
+                Autom. Druckfreigabe<br>am <strong>10.04.2026</strong>
               </div>
-              <div class="tooltip-hint">Ihr Motiv wird automatisch am 10.04.2026 freigegeben. Sie können es bis dahin über den Button ablehnen.</div>
             </td>
-            <td><button class="btn btn-outline-brand btn-sm">Druckfreigabe</button></td>
+            <td>
+              <button class="btn btn-outline-brand btn-sm">Druckfreigabe</button>
+              <div style="font-size:10px; color: var(--text-light); margin-top:3px;">→ kein Modal, erteilt sofort</div>
+            </td>
           </tr>
           <tr>
             <td><div class="thumb">Vorschau</div></td>
@@ -672,7 +673,9 @@
 
   <div class="annotation">
     <span class="ann-icon">💡</span>
-    Status-Label war vorher: "Druckfreigabe nötig" (ohne Datum). Neues Label zeigt Frist explizit. Tooltip wurde angepasst. Button und Modal bleiben unverändert.
+    <div>
+      Status-Badge zeigt "Autom. Druckfreigabe am …" (auto-pending, wie Option B). Kein Freigabe-Modal mehr: Klick auf „Druckfreigabe" löst die Freigabe direkt aus. Dieser Screen deckt den Fall ab, dass der Kunde während des Opt-Out-Fensters aktiv freigeben möchte — auch bei Option B möglich.
+    </div>
   </div>
 </div>
 
