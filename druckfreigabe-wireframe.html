@@ -492,7 +492,7 @@
 <!-- Meta bar -->
 <div class="meta-bar">
   Druckfreigabe UI Wireframes &nbsp;|&nbsp;
-  <span>Letztes Update: 2026-03-24</span> &nbsp;|&nbsp;
+  <span>Letztes Update: 2026-03-26</span> &nbsp;|&nbsp;
   Bezug: Confluence-Seite "Staudigl Print Approval: Lean Process" v10 &nbsp;|&nbsp;
   <span class="new-badge">ENTWURF</span>
 </div>
@@ -502,10 +502,10 @@
   <button class="active" onclick="showTab(0)">1 — Motivzuordnung abschließen + Consent Modal</button>
   <button onclick="showTab(1)">2 — Motivübersicht: Opt-Out-Fenster (Kunde, Option A)</button>
   <button onclick="showTab(2)">3 — Motivübersicht: Opt-Out-Fenster (Kunde, Option B)</button>
-  <button onclick="showTab(3)">4 — Motivübersicht: Opt-Out-Fenster (Manager)</button>
-  <button onclick="showTab(4)">5 — Motivübersicht: Freigegeben</button>
-  <button onclick="showTab(5)">6 — Motivübersicht: Freigabe abgelehnt</button>
-  <button onclick="showTab(6)">7 — Druckfreigabe-Modal (bestehend, unverändert)</button>
+  <button onclick="showTab(3)">3b — Option B: Modal "Nicht freigeben"</button>
+  <button onclick="showTab(4)">4 — Motivübersicht: Opt-Out-Fenster (Manager)</button>
+  <button onclick="showTab(5)">5 — Motivübersicht: Freigegeben</button>
+  <button onclick="showTab(6)">6 — Motivübersicht: Freigabe abgelehnt</button>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -724,7 +724,6 @@
                 Wird automatisch freigegeben<br>
                 am <strong>10.04.2026, 14:00 Uhr</strong>
               </div>
-              <div class="tooltip-hint">Kein Handlungsbedarf. Sie können das Motiv bis zur Frist über den Button ablehnen.</div>
             </td>
             <td><button class="btn btn-sm" style="color: var(--red); border-color: var(--red);">Nicht freigeben</button></td>
           </tr>
@@ -752,6 +751,104 @@
     <span class="ann-icon">💡</span>
     <div>
       <strong>Option B vs. Option A:</strong> Der Status "Wird automatisch freigegeben am …" kommuniziert klarer, dass kein Handlungsbedarf besteht. Risiko: Kunden könnten den "Nicht freigeben"-Button übersehen. Entscheidung ausstehend (OQ-7).
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SCREEN 3b — Option B: "Nicht freigeben" Confirmation Modal
+════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-3b">
+  <div class="screen-title">Screen 3b — Neu · Option B</div>
+  <div class="screen-subtitle">Modal: Sind Sie sicher? — Motiv nicht freigeben</div>
+  <div class="screen-desc">
+    Der Kunde klickt auf „Nicht freigeben". Es öffnet sich dieses Bestätigungs-Modal. Kein separater Freigabe-Button; keine alte Druckfreigabe-Modal-Logik.
+    <span class="new-tag">NEU: Modal</span>
+  </div>
+
+  <div class="page-chrome">
+    <div class="page-header">
+      <div class="logo">crossvertise</div>
+      <div class="nav-items">
+        <span>Meine Kampagnen</span>
+        <span class="active">Motivübersicht</span>
+      </div>
+    </div>
+
+    <!-- Background table blurred -->
+    <div style="filter: blur(1.5px); opacity:.5;">
+      <div class="page-body">
+        <div class="page-heading">Außenwerbung</div>
+        <div class="table-wrap"><table>
+          <thead>
+            <tr>
+              <th>Vorschau</th><th>Motivname</th><th>Zugeordnete Belegung(en)</th>
+              <th>Kampagnenzeitraum</th><th>Unterlagenschluss</th><th>Status</th><th>Informationen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="thumb">Vorschau</div></td>
+              <td><div class="motif-name">M1_GODELMANNGmb… <span class="dl-icon">⬇</span></div></td>
+              <td><span class="link">Barteläcker 13 Edeka Wiesmeth</span></td>
+              <td><span class="link">Termine 11–12 (21.04.2026 – 12.05.2026)</span></td>
+              <td>10.04.2026</td>
+              <td>
+                <div class="status auto-pending">
+                  <span class="icon">🕐</span>
+                  Wird automatisch freigegeben<br>am <strong>10.04.2026, 14:00 Uhr</strong>
+                </div>
+              </td>
+              <td><button class="btn btn-sm" style="color: var(--red); border-color: var(--red);">Nicht freigeben</button></td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal overlay -->
+    <div class="modal-overlay">
+      <div class="modal">
+        <div class="modal-header">
+          Motiv nicht freigeben
+          <span class="close">✕</span>
+        </div>
+        <div class="modal-body">
+          <div class="modal-intro">
+            Sind Sie sicher, dass Sie die Freigabe für dieses Motiv ablehnen möchten?
+          </div>
+
+          <div class="motif-preview-row">
+            <div class="motif-preview-box">Vorschau</div>
+            <div class="motif-preview-info">
+              <strong>M1_GODELMANNGmbH_Garten.pdf</strong>
+              <div>Zugeordnete Belegung(en):</div>
+              <div class="allocation">• Barteläcker 13 Edeka Wiesmeth (21.04.2026 – 12.05.2026)</div>
+            </div>
+          </div>
+
+          <div class="reject-form">
+            <label>Grund (optional):</label>
+            <textarea placeholder="Bitte teilen Sie uns mit, warum Sie das Motiv nicht freigeben können..."></textarea>
+          </div>
+
+          <div class="annotation" style="margin-top: 12px;">
+            <span class="ann-icon">⚠️</span>
+            <div>Bitte laden Sie bis zum Druckunterlagenschluss ein neues Motiv hoch.</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn">Nein, zurück</button>
+          <button class="btn btn-danger">Ja, Freigabe ablehnen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="annotation">
+    <span class="ann-icon">💡</span>
+    <div>
+      Dieses Modal ersetzt das bisherige Druckfreigabe-Modal (Tab 7) vollständig für Option B. Kein Freigabe-Button, kein separates Approve-Flow — nur Ablehnen mit Pflichthinweis auf neues Motiv.
     </div>
   </div>
 </div>
@@ -977,62 +1074,6 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════
-     SCREEN 7 — Existing Druckfreigabe Modal (unchanged)
-════════════════════════════════════════════════════ -->
-<div class="screen" id="screen-6">
-  <div class="screen-title">Screen 7 — Referenz · Unverändert</div>
-  <div class="screen-subtitle">Druckfreigabe-Modal (bestehend, unverändert)</div>
-  <div class="screen-desc">
-    Dieses Modal öffnet sich beim Klick auf "Druckfreigabe" (Option A) oder "Nicht freigeben" (Option B). Es bleibt in beiden Fällen unverändert.
-    <span style="background:#e0e0e0; color:#555; font-size:9px; font-weight:bold; border-radius:2px; padding:1px 4px;">UNVERÄNDERT</span>
-  </div>
-
-  <div class="page-chrome">
-    <div class="modal-overlay" style="padding: 20px;">
-      <div class="modal">
-        <div class="modal-header">
-          Druckfreigabe
-          <span class="close">✕</span>
-        </div>
-        <div class="modal-body">
-          <div class="modal-intro">
-            Bitte geben Sie dieses Motiv zum Druck frei. Sie bestätigen damit final Ihr Einverständnis für die Veröffentlichung und Richtigkeit des Motives. Bitte überprüfen Sie speziell die Schnittmarken, Rechtschreibung sowie Auflösung des Motives.
-          </div>
-
-          <div class="motif-preview-row">
-            <div class="motif-preview-box">Vorschau</div>
-            <div class="motif-preview-info">
-              <strong>M1_GODELMANNGmbH_Garten.pdf</strong>
-              <div>Dem Motiv sind folgende Belegungen zugeordnet:</div>
-              <div class="allocation">• Barteläcker 13 Edeka Wiesmeth (21.04.2026 – 12.05.2026)</div>
-              <div class="allocation">• Wackersdorfer Str. – Schwimmbadstr. (21.04.2026 – 22.05.2026)</div>
-            </div>
-          </div>
-
-          <div style="font-size:12px; margin-bottom: 8px;">
-            <label style="display:flex; gap:8px; align-items:flex-start; cursor:pointer;">
-              <input type="checkbox" style="margin-top:2px; accent-color: var(--brand);">
-              <span>Ich bestätige, dass ich alle im Motiv enthaltenen Medien auf ihre Inhalte überprüft habe.</span>
-            </label>
-          </div>
-
-          <span class="collapse-link">Ich möchte das Motiv nicht freigeben</span>
-
-          <div class="reject-form">
-            <label>Fehlermeldung:</label>
-            <textarea placeholder="Bitte teilen Sie uns mit, warum Sie das Motiv nicht freigeben können..."></textarea>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn">Abbrechen</button>
-          <button class="btn btn-danger btn-sm">Nachricht senden</button>
-          <button class="btn btn-primary">Druckfreigabe erteilen</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script>
   function showTab(index) {
