@@ -863,8 +863,8 @@
   <div class="screen-title">Screen 4 — Geändert</div>
   <div class="screen-subtitle">Motivübersicht — Opt-Out-Fenster läuft (Manager-Ansicht)</div>
   <div class="screen-desc">
-    "Prüfen…"-Button existiert bereits in der Manager-Ansicht. Er wird nun direkt mit der Druckfreigabe verdrahtet — kein Wechsel in die Kundenansicht mehr nötig.
-    <span class="changed-tag">GEÄNDERT: Button-Verdrahtung</span>
+    Manager-Ansicht: gleicher Status-Badge wie Kunde ("Autom. Druckfreigabe am…"). Klick auf "Druckfreigabe" erteilt sofort — kein Modal. Manager kann auch früher manuell freigeben.
+    <span class="changed-tag">GEÄNDERT: Status-Badge, Button</span>
   </div>
 
   <div class="page-chrome">
@@ -901,16 +901,14 @@
             <td><span class="link">Termine 11–12 (21.04.2026 – 12.05.2026)</span></td>
             <td>10.04.2026</td>
             <td>
-              <div class="status approval-needed">
+              <div class="status auto-pending">
                 <span class="icon">⏳</span>
-                Druckfreigabe nötig bis<br>
-                <strong>10.04.2026, 14:00 Uhr</strong>
+                Autom. Druckfreigabe<br>am <strong>10.04.2026</strong>
               </div>
-              <div class="tooltip-hint">Automatische Freigabe am 10.04.2026, sofern nicht freigegeben wird. Sie können die Freigabe auch manuell früher erteilen.</div>
             </td>
             <td>
-              <button class="btn btn-sm">Prüfen…</button>
-              <div style="font-size:10px; color: var(--text-light); margin-top:3px;">→ erteilt Druckfreigabe direkt</div>
+              <button class="btn btn-outline-brand btn-sm">Druckfreigabe</button>
+              <div style="font-size:10px; color: var(--text-light); margin-top:3px;">→ kein Modal, erteilt sofort</div>
             </td>
           </tr>
           <tr>
@@ -937,7 +935,7 @@
   <div class="annotation">
     <span class="ann-icon">💡</span>
     <div>
-      Der "Prüfen…"-Button existiert bereits (bestätigt per Screenshot vom 24.03.2026). Aktuell führt er zur internen Prüfung (Anbieterfreigabe). <strong>Änderung:</strong> Im Druckfreigabe-Status wird er direkt mit ApproveMotif(token) verdrahtet — kein Nutzerwechsel mehr nötig. Tooltip-Text angepasst.
+      Status-Badge identisch zur Kunden-Ansicht ("Autom. Druckfreigabe am 10.04.2026"). "Druckfreigabe"-Button löst Freigabe direkt aus — kein Modal, kein Nutzerwechsel. M2 zeigt weiterhin "Anbieterfreigabe steht aus" mit separatem "Prüfen…"-Button (anderer Flow: ContentCheck).
     </div>
   </div>
 </div>
