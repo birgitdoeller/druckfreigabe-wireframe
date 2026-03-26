@@ -4,35 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Druckfreigabe — UI Wireframes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --brand:       #72BF44;
-      --brand-dark:  #5a9e33;
-      --link:        #72BF44;
+      --primary:     #273435;
+      --primary-hover: #303F40;
+      --brand:       #97BF0D;
+      --brand-dark:  #729C00;
+      --link:        #97BF0D;
       --text:        #333333;
       --text-light:  #666666;
       --border:      #dddddd;
-      --bg:          #f5f5f5;
+      --bg:          #f7f7f7;
       --white:       #ffffff;
-      --green:       #4caf50;
-      --red:         #e53935;
-      --orange:      #ff9800;
-      --badge-new:   #d4edda;
-      --badge-new-t: #155724;
+      --green:       #97BF0D;
+      --red:         #d62512;
+      --orange:      #ff7f04;
+      --badge-new:   #f4f7e5;
+      --badge-new-t: #5c8900;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
+      font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 14px;
       color: var(--text);
       background: var(--bg);
     }
 
     /* ── Meta bar ── */
     .meta-bar {
-      background: #222;
+      background: var(--primary);
       color: #aaa;
       font-size: 11px;
       padding: 6px 20px;
@@ -45,9 +49,9 @@
       background: var(--brand);
       color: #fff;
       border-radius: 3px;
-      padding: 1px 6px;
+      padding: 2px 8px;
       font-size: 10px;
-      font-weight: bold;
+      font-weight: 600;
       letter-spacing: .5px;
     }
 
@@ -72,9 +76,9 @@
       margin-bottom: -2px;
     }
     .tab-nav button.active {
-      color: var(--brand);
-      border-bottom-color: var(--brand);
-      font-weight: bold;
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+      font-weight: 600;
     }
     .tab-nav button:hover:not(.active) { color: var(--text); }
 
@@ -121,8 +125,8 @@
     }
     .page-header .logo {
       font-size: 16px;
-      font-weight: bold;
-      color: var(--brand);
+      font-weight: 600;
+      color: var(--primary);
       letter-spacing: -0.5px;
     }
     .page-header .nav-items {
@@ -132,7 +136,7 @@
       color: var(--text-light);
       margin-left: 12px;
     }
-    .page-header .nav-items span.active { color: var(--brand); font-weight: bold; }
+    .page-header .nav-items span.active { color: var(--brand); font-weight: 600; }
 
     .page-body { padding: 20px 24px; }
 
@@ -147,7 +151,7 @@
       width: 100%;
       min-width: 860px;
       border-collapse: collapse;
-      font-size: 12px;
+      font-size: 14px;
     }
     thead tr {
       background: var(--bg);
@@ -156,16 +160,16 @@
     thead th {
       text-align: left;
       padding: 8px 10px;
-      font-weight: bold;
+      font-weight: 600;
       color: var(--text-light);
-      font-size: 11px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: .3px;
     }
     tbody tr {
       border-bottom: 1px solid var(--border);
     }
-    tbody tr:hover { background: #fafafa; }
+    tbody tr:hover { background: #edefef; }
     tbody td {
       padding: 10px 10px;
       vertical-align: middle;
@@ -204,21 +208,45 @@
     a, .link { color: var(--link); text-decoration: none; cursor: pointer; }
     a:hover, .link:hover { text-decoration: underline; }
 
-    /* ── Status badges ── */
+    /* ── Status chips (matching design system) ── */
     .status {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       font-size: 12px;
-      font-weight: bold;
+      font-weight: 600;
       white-space: nowrap;
+      padding: 3px 10px;
+      border-radius: 15px;
+      border: 1px solid;
+      line-height: 1.4;
     }
-    .status .icon { font-size: 14px; }
-    .status.approval-needed { color: #555; }
-    .status.auto-pending    { color: var(--orange); }
-    .status.approved        { color: var(--green); }
-    .status.rejected        { color: var(--red); }
-    .status.provider-check  { color: var(--text-light); }
+    .status .icon { font-size: 13px; }
+    .status.approval-needed {
+      color: #555;
+      background: #f7f7f7;
+      border-color: #e3e3e3;
+    }
+    .status.auto-pending {
+      color: #7a3d00;
+      background: #fff9c2;
+      border-color: var(--orange);
+    }
+    .status.approved {
+      color: #5c8900;
+      background: #f4f7e5;
+      border-color: var(--green);
+    }
+    .status.rejected {
+      color: #a01b0d;
+      background: #fee9e8;
+      border-color: var(--red);
+    }
+    .status.provider-check {
+      color: var(--text-light);
+      background: #f7f7f7;
+      border-color: #e3e3e3;
+    }
 
     /* ── Tooltip hint ── */
     .tooltip-hint {
@@ -242,11 +270,11 @@
     }
     .btn:hover { background: var(--bg); }
     .btn-primary {
-      background: var(--brand);
+      background: var(--primary);
       color: #fff;
-      border-color: var(--brand);
+      border-color: var(--primary);
     }
-    .btn-primary:hover { background: var(--brand-dark); }
+    .btn-primary:hover { background: var(--primary-hover); }
     .btn-outline-brand {
       color: var(--brand);
       border-color: var(--brand);
@@ -257,27 +285,35 @@
       color: #fff;
       border-color: var(--red);
     }
+    .btn-danger:hover { background: #a01b0d; border-color: #a01b0d; }
+    .btn-success {
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand-dark);
+    }
+    .btn-success:hover { background: var(--brand-dark); }
     .btn-sm { padding: 4px 10px; font-size: 11px; }
     .btn-lg { padding: 9px 20px; font-size: 13px; }
 
     /* ── NEW tag ── */
     .new-tag {
-      background: var(--brand);
+      background: var(--primary);
       color: #fff;
       font-size: 9px;
-      font-weight: bold;
-      border-radius: 2px;
-      padding: 1px 4px;
+      font-weight: 600;
+      border-radius: 3px;
+      padding: 2px 6px;
       letter-spacing: .3px;
       vertical-align: middle;
     }
     .changed-tag {
-      background: #fff3cd;
-      color: #856404;
+      background: #fff9c2;
+      color: #7a3d00;
+      border: 1px solid var(--orange);
       font-size: 9px;
-      font-weight: bold;
-      border-radius: 2px;
-      padding: 1px 4px;
+      font-weight: 600;
+      border-radius: 3px;
+      padding: 2px 6px;
       vertical-align: middle;
     }
 
@@ -299,10 +335,10 @@
       overflow: hidden;
     }
     .modal-header {
-      background: var(--brand);
+      background: var(--primary);
       color: #fff;
       padding: 12px 18px;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 14px;
       display: flex;
       justify-content: space-between;
@@ -420,21 +456,21 @@
     .assign-table .radio-col { width: 36px; text-align: center; }
     .assign-table input[type=radio] { width: 14px; height: 14px; accent-color: var(--brand); }
 
-    /* ── Annotation ── */
+    /* ── Annotation (matching .alert-warning style) ── */
     .annotation {
       display: flex;
       gap: 8px;
       align-items: flex-start;
-      font-size: 11px;
-      color: #555;
-      background: #fffbe6;
-      border: 1px solid #ffe58f;
+      font-size: 12px;
+      color: #7a3d00;
+      background: #fff9c2;
+      border: 1px solid var(--orange);
       border-radius: 3px;
-      padding: 8px 12px;
+      padding: 10px 14px;
       margin-top: 14px;
       line-height: 1.5;
     }
-    .annotation .ann-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .annotation .ann-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
 
     /* ── Legend ── */
     .legend {
