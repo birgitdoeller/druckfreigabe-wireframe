@@ -594,7 +594,7 @@
         </div>
         <div class="modal-body">
           <div class="consent-body">
-            Mit dem Abschließen der Motivzuordnung erfolgt auch die Druckfreigabe gemäß unseren <a href="#" class="link">Besonderen Bestimmungen für Außenwerbung</a>.<br><br>
+            Mit dem Abschließen der Motivzuordnung erteilen Sie auch die Druckfreigabe gemäß unseren <a href="https://www.crossvertise.com/rechtliches/besondere-bestimmungen-zur-aussenwerbung" class="link" target="_blank">Besonderen Bestimmungen für Außenwerbung</a>.<br><br>
             Wir informieren Sie gesondert über den Start der Plakat-Produktion. Änderungen sind bis zum Druckunterlagenschluss möglich.
           </div>
         </div>
@@ -665,7 +665,8 @@
               </div>
             </td>
             <td>
-              <button class="btn btn-sm">Druckfreigabe</button>
+              <button class="btn btn-sm">Druckfreigabe erteilen</button>
+              <div style="margin-top:5px;"><button class="btn btn-sm" style="font-size:11px; color:var(--text-light);">Nicht freigeben…</button></div>
             </td>
           </tr>
           <tr>
@@ -681,7 +682,7 @@
                 <span class="icon">⏳</span> Anbieterfreigabe steht aus
               </div>
             </td>
-            <td><button class="btn btn-sm" disabled style="opacity:.4;">Druckfreigabe</button></td>
+            <td><button class="btn btn-sm" disabled style="opacity:.4;">Druckfreigabe erteilen</button></td>
           </tr>
         </tbody>
       </table></div>
@@ -691,7 +692,7 @@
   <div class="annotation">
     <span class="ann-icon">💡</span>
     <div>
-      Klick auf „Druckfreigabe" → kein Modal, Freigabe wird sofort erteilt. Anschließend erscheint folgende Toast-Meldung:
+      Beide Buttons koexistieren immer in derselben Zeile. <strong>„Druckfreigabe erteilen"</strong> → kein Modal, Freigabe wird sofort erteilt (frühe aktive Freigabe). <strong>„Nicht freigeben…"</strong> → öffnet Bestätigungs-Modal (Screen 3b). Screen 3 zeigt denselben Zustand. Anschließend erscheint folgende Toast-Meldung:
       <div class="toast-demo">
         <span class="toast-icon">✓</span>
         <div>
@@ -751,7 +752,10 @@
                 Autom. Druckfreigabe am <strong>10.04.2026</strong>
               </div>
             </td>
-            <td><button class="btn btn-sm">Nicht freigeben</button></td>
+            <td>
+              <button class="btn btn-sm">Druckfreigabe erteilen</button>
+              <div style="margin-top:5px;"><button class="btn btn-sm" style="font-size:11px; color:var(--text-light);">Nicht freigeben…</button></div>
+            </td>
           </tr>
           <tr>
             <td><div class="thumb">Vorschau</div></td>
@@ -776,7 +780,7 @@
   <div class="annotation">
     <span class="ann-icon">💡</span>
     <div>
-      <strong>Option B — finalisiert:</strong> Status "Autom. Druckfreigabe am …" kommuniziert klar, dass kein Handlungsbedarf besteht. "Nicht freigeben"-Button ist grau — dezent, tritt visuell zurück. Klick öffnet Bestätigungs-Modal (Screen 3b).
+      <strong>Identischer Zustand wie Screen 2.</strong> Beide Buttons koexistieren immer: „Druckfreigabe erteilen" (frühe aktive Freigabe, kein Modal) und „Nicht freigeben…" (öffnet Bestätigungs-Modal, Screen 3b). Screens 2 und 3 können im finalen Design zu einem Screen zusammengeführt werden.
     </div>
   </div>
 </div>
@@ -825,7 +829,10 @@
                   Autom. Druckfreigabe am <strong>10.04.2026</strong>
                 </div>
               </td>
-              <td><button class="btn btn-sm">Nicht freigeben</button></td>
+              <td>
+                <button class="btn btn-sm">Druckfreigabe erteilen</button>
+                <div style="margin-top:5px;"><button class="btn btn-sm" style="font-size:11px; color:var(--text-light);">Nicht freigeben…</button></div>
+              </td>
             </tr>
           </tbody>
         </table></div>
@@ -864,8 +871,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button class="btn">Nein, zurück</button>
-          <button class="btn btn-primary">Ja, Freigabe ablehnen</button>
+          <button class="btn">Zurück</button>
+          <button class="btn btn-primary">Freigabe ablehnen</button>
         </div>
       </div>
     </div>
@@ -930,7 +937,7 @@
               </div>
             </td>
             <td>
-              <button class="btn btn-sm">Druckfreigabe</button>
+              <button class="btn btn-sm">Druckfreigabe erteilen</button>
             </td>
           </tr>
           <tr>
@@ -957,7 +964,7 @@
   <div class="annotation">
     <span class="ann-icon">💡</span>
     <div>
-      Status-Badge identisch zur Kunden-Ansicht. Klick auf „Druckfreigabe" → kein Modal, Freigabe sofort erteilt. Anschließend erscheint:
+      Status-Badge identisch zur Kunden-Ansicht. Klick auf „Druckfreigabe erteilen" → kein Modal, Freigabe sofort erteilt. Anschließend erscheint:
       <div class="toast-demo">
         <span class="toast-icon">✓</span>
         <div>
@@ -1015,11 +1022,12 @@
             <td>
               <div class="status approved">
                 <span class="icon">✅</span>
-                Freigegeben am<br>
-                <strong>10.04.2026</strong>
+                Freigegeben
               </div>
             </td>
-            <td>—</td>
+            <td>
+              <span style="font-size:12px; color:var(--text-light);">Motiv zum Druck freigegeben am 10.04.2026</span>
+            </td>
           </tr>
           <tr>
             <td><div class="thumb">Vorschau</div></td>
@@ -1032,11 +1040,12 @@
             <td>
               <div class="status approved">
                 <span class="icon">✅</span>
-                Freigegeben am<br>
-                <strong>08.04.2026</strong>
+                Freigegeben
               </div>
             </td>
-            <td>—</td>
+            <td>
+              <span style="font-size:12px; color:var(--text-light);">Motiv zum Druck freigegeben am 08.04.2026</span>
+            </td>
           </tr>
         </tbody>
       </table></div>
