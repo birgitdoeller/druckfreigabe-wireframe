@@ -485,6 +485,24 @@
     .legend-dot {
       width: 10px; height: 10px; border-radius: 50%;
     }
+
+    /* ── Toast (Wireframe Demo) ── */
+    .toast-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border: 1px solid var(--green);
+      border-left: 4px solid var(--green);
+      border-radius: 4px;
+      padding: 8px 14px;
+      font-size: 12px;
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      margin-top: 10px;
+    }
+    .toast-demo .toast-icon { color: var(--green); font-size: 14px; }
+    .toast-demo .toast-label { font-size: 10px; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 1px; }
   </style>
 </head>
 <body>
@@ -500,9 +518,9 @@
 <!-- Tab navigation -->
 <div class="tab-nav">
   <button class="active" onclick="showTab(0)">1 — Motivzuordnung abschließen + Consent Modal</button>
-  <button onclick="showTab(1)">2 — Motivübersicht: Opt-Out-Fenster läuft (Kunde, aktive Freigabe)</button>
-  <button onclick="showTab(2)">3 — Motivübersicht: Opt-Out-Fenster (Kunde, Option B)</button>
-  <button onclick="showTab(3)">3b — Option B: Modal "Nicht freigeben"</button>
+  <button onclick="showTab(1)">2 — Motivübersicht: Opt-Out-Fenster (Kunde — frühe Freigabe)</button>
+  <button onclick="showTab(2)">3 — Motivübersicht: Opt-Out-Fenster (Kunde — Standard)</button>
+  <button onclick="showTab(3)">3b — Bestätigungs-Modal: Nicht freigeben</button>
   <button onclick="showTab(4)">4 — Motivübersicht: Opt-Out-Fenster (Manager)</button>
   <button onclick="showTab(5)">5 — Motivübersicht: Freigegeben</button>
   <button onclick="showTab(6)">6 — Motivübersicht: Freigabe abgelehnt</button>
@@ -575,7 +593,6 @@
           <span class="close">✕</span>
         </div>
         <div class="modal-body">
-          <div class="consent-icon">📋</div>
           <div class="consent-body">
             Mit dem Abschließen der Motivzuordnung erfolgt auch die Druckfreigabe gemäß unseren <a href="#" class="link">Besonderen Bestimmungen für Außenwerbung</a>.<br><br>
             Wir informieren Sie gesondert über den Start der Plakat-Produktion. Änderungen sind bis zum Druckunterlagenschluss möglich.
@@ -648,7 +665,7 @@
               </div>
             </td>
             <td>
-              <button class="btn btn-outline-brand btn-sm">Druckfreigabe erteilen</button>
+              <button class="btn btn-sm">Druckfreigabe</button>
             </td>
           </tr>
           <tr>
@@ -664,7 +681,7 @@
                 <span class="icon">⏳</span> Anbieterfreigabe steht aus
               </div>
             </td>
-            <td><button class="btn btn-sm" disabled style="opacity:.4;">Druckfreigabe erteilen</button></td>
+            <td><button class="btn btn-sm" disabled style="opacity:.4;">Druckfreigabe</button></td>
           </tr>
         </tbody>
       </table></div>
@@ -674,7 +691,14 @@
   <div class="annotation">
     <span class="ann-icon">💡</span>
     <div>
-      Status-Badge zeigt "Autom. Druckfreigabe am …" (auto-pending, wie Option B). Kein Freigabe-Modal mehr: Klick auf „Druckfreigabe" löst die Freigabe direkt aus. Dieser Screen deckt den Fall ab, dass der Kunde während des Opt-Out-Fensters aktiv freigeben möchte — auch bei Option B möglich.
+      Klick auf „Druckfreigabe" → kein Modal, Freigabe wird sofort erteilt. Anschließend erscheint folgende Toast-Meldung:
+      <div class="toast-demo">
+        <span class="toast-icon">✓</span>
+        <div>
+          <div class="toast-label">Bestätigung</div>
+          Druckfreigabe erfolgreich erteilt.
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -683,11 +707,11 @@
      SCREEN 3 — Motivübersicht: window open, Kunde, Option B
 ════════════════════════════════════════════════════ -->
 <div class="screen" id="screen-2">
-  <div class="screen-title">Screen 3 — Zur Diskussion · Option B</div>
-  <div class="screen-subtitle">Motivübersicht — Opt-Out-Fenster läuft (Kunde, Option B: Optimistische Anzeige)</div>
+  <div class="screen-title">Screen 3 — Geändert</div>
+  <div class="screen-subtitle">Motivübersicht — Opt-Out-Fenster läuft (Kunde — Standard)</div>
   <div class="screen-desc">
-    Alternativvorschlag (Entwickler): Status zeigt sofort "Wird automatisch freigegeben am …". Nur ein "Nicht freigeben"-Button sichtbar. Kein separater Freigabe-Button nötig.
-    <span class="new-tag">ZUR DISKUSSION</span>
+    Standard-Ansicht im Opt-Out-Fenster. Status zeigt automatische Freigabe. Nur "Nicht freigeben"-Button sichtbar — kein separater Freigabe-Button. Klick auf "Nicht freigeben" öffnet Bestätigungs-Modal (Screen 3b).
+    <span class="changed-tag">GEÄNDERT: Option B finalisiert</span>
   </div>
 
   <div class="page-chrome">
@@ -723,12 +747,11 @@
             <td>10.04.2026</td>
             <td>
               <div class="status auto-pending">
-                <span class="icon">🕐</span>
-                Wird automatisch freigegeben<br>
-                am <strong>10.04.2026, 14:00 Uhr</strong>
+                <span class="icon">⏳</span>
+                Autom. Druckfreigabe<br>am <strong>10.04.2026</strong>
               </div>
             </td>
-            <td><button class="btn btn-sm" style="color: var(--red); border-color: var(--red);">Nicht freigeben</button></td>
+            <td><button class="btn btn-sm">Nicht freigeben</button></td>
           </tr>
           <tr>
             <td><div class="thumb">Vorschau</div></td>
@@ -753,7 +776,7 @@
   <div class="annotation">
     <span class="ann-icon">💡</span>
     <div>
-      <strong>Option B vs. Option A:</strong> Der Status "Wird automatisch freigegeben am …" kommuniziert klarer, dass kein Handlungsbedarf besteht. Risiko: Kunden könnten den "Nicht freigeben"-Button übersehen. Entscheidung ausstehend (OQ-7).
+      <strong>Option B — finalisiert:</strong> Status "Autom. Druckfreigabe am …" kommuniziert klar, dass kein Handlungsbedarf besteht. "Nicht freigeben"-Button ist grau — dezent, tritt visuell zurück. Klick öffnet Bestätigungs-Modal (Screen 3b).
     </div>
   </div>
 </div>
@@ -798,11 +821,11 @@
               <td>10.04.2026</td>
               <td>
                 <div class="status auto-pending">
-                  <span class="icon">🕐</span>
-                  Wird automatisch freigegeben<br>am <strong>10.04.2026, 14:00 Uhr</strong>
+                  <span class="icon">⏳</span>
+                  Autom. Druckfreigabe<br>am <strong>10.04.2026</strong>
                 </div>
               </td>
-              <td><button class="btn btn-sm" style="color: var(--red); border-color: var(--red);">Nicht freigeben</button></td>
+              <td><button class="btn btn-sm">Nicht freigeben</button></td>
             </tr>
           </tbody>
         </table></div>
@@ -842,7 +865,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn">Nein, zurück</button>
-          <button class="btn btn-danger">Ja, Freigabe ablehnen</button>
+          <button class="btn btn-primary">Ja, Freigabe ablehnen</button>
         </div>
       </div>
     </div>
@@ -907,7 +930,7 @@
               </div>
             </td>
             <td>
-              <button class="btn btn-outline-brand btn-sm">Druckfreigabe erteilen</button>
+              <button class="btn btn-sm">Druckfreigabe</button>
             </td>
           </tr>
           <tr>
@@ -934,7 +957,15 @@
   <div class="annotation">
     <span class="ann-icon">💡</span>
     <div>
-      Status-Badge identisch zur Kunden-Ansicht ("Autom. Druckfreigabe am 10.04.2026"). "Druckfreigabe"-Button löst Freigabe direkt aus — kein Modal, kein Nutzerwechsel. M2 zeigt weiterhin "Anbieterfreigabe steht aus" mit separatem "Prüfen…"-Button (anderer Flow: ContentCheck).
+      Status-Badge identisch zur Kunden-Ansicht. Klick auf „Druckfreigabe" → kein Modal, Freigabe sofort erteilt. Anschließend erscheint:
+      <div class="toast-demo">
+        <span class="toast-icon">✓</span>
+        <div>
+          <div class="toast-label">Bestätigung</div>
+          Druckfreigabe erfolgreich erteilt.
+        </div>
+      </div>
+      M2 zeigt weiterhin "Anbieterfreigabe steht aus" mit separatem "Prüfen…"-Button (anderer Flow: ContentCheck).
     </div>
   </div>
 </div>
@@ -1057,7 +1088,6 @@
             <td>10.04.2026</td>
             <td>
               <div class="status rejected">
-                <span class="icon">❌</span>
                 Freigabe abgelehnt —<br>neues Motiv erforderlich
               </div>
             </td>
