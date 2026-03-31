@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -518,12 +518,11 @@
 <!-- Tab navigation -->
 <div class="tab-nav">
   <button class="active" onclick="showTab(0)">1 — Motivzuordnung abschließen + Consent Modal</button>
-  <button onclick="showTab(1)">2 — Motivübersicht: Opt-Out-Fenster (Kunde — frühe Freigabe)</button>
-  <button onclick="showTab(2)">3 — Motivübersicht: Opt-Out-Fenster (Kunde — Standard)</button>
-  <button onclick="showTab(3)">3b — Bestätigungs-Modal: Nicht freigeben</button>
-  <button onclick="showTab(4)">4 — Motivübersicht: Opt-Out-Fenster (Manager)</button>
-  <button onclick="showTab(5)">5 — Motivübersicht: Freigegeben</button>
-  <button onclick="showTab(6)">6 — Motivübersicht: Freigabe abgelehnt</button>
+  <button onclick="showTab(1)">2 — Motivübersicht: Opt-Out-Fenster (Kunde)</button>
+  <button onclick="showTab(2)">3b — Bestätigungs-Modal: Nicht freigeben</button>
+  <button onclick="showTab(3)">4 — Motivübersicht: Opt-Out-Fenster (Manager)</button>
+  <button onclick="showTab(4)">5 — Motivübersicht: Freigegeben</button>
+  <button onclick="showTab(5)">6 — Motivübersicht: Freigabe abgelehnt</button>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -595,7 +594,7 @@
         <div class="modal-body">
           <div class="consent-body">
             Mit dem Abschließen der Motivzuordnung erteilen Sie auch die Druckfreigabe gemäß unseren <a href="https://www.crossvertise.com/rechtliches/besondere-bestimmungen-zur-aussenwerbung" class="link" target="_blank">Besonderen Bestimmungen für Außenwerbung</a>.<br><br>
-            Wir informieren Sie gesondert über den Start der Plakat-Produktion. Änderungen sind bis zum Druckunterlagenschluss möglich.
+            Änderungen sind bis zum Druckunterlagenschluss möglich.
           </div>
         </div>
         <div class="modal-footer">
@@ -619,10 +618,10 @@
 ════════════════════════════════════════════════════ -->
 <div class="screen" id="screen-1">
   <div class="screen-title">Screen 2 — Geändert</div>
-  <div class="screen-subtitle">Motivübersicht — Opt-Out-Fenster läuft (Kunde möchte aktiv freigeben)</div>
+  <div class="screen-subtitle">Motivübersicht — Opt-Out-Fenster läuft (Kunde)</div>
   <div class="screen-desc">
-    Kunde öffnet die Seite während das Opt-Out-Fenster läuft und möchte das Motiv aktiv freigeben. Status zeigt automatische Freigabe. Klick auf „Druckfreigabe" erteilt die Freigabe sofort — kein Modal.
-    <span class="changed-tag">GEÄNDERT: Status-Badge, kein Modal</span>
+    Kunde öffnet die Seite während das Opt-Out-Fenster läuft. Status zeigt automatische Freigabe. Kein separater „Druckfreigabe erteilen"-Button — einzige Aktion ist „Nicht freigeben…".
+    <span class="changed-tag">GEÄNDERT: Druckfreigabe-Button entfernt</span>
   </div>
 
   <div class="page-chrome">
@@ -665,96 +664,7 @@
               </div>
             </td>
             <td>
-              <button class="btn btn-sm">Druckfreigabe erteilen</button>
-              <div style="margin-top:5px;"><button class="btn btn-sm" style="font-size:11px; color:var(--text-light);">Nicht freigeben…</button></div>
-            </td>
-          </tr>
-          <tr>
-            <td><div class="thumb">Vorschau</div></td>
-            <td>
-              <div class="motif-name">M2_GODELMANNGmb… <span class="dl-icon">⬇</span></div>
-            </td>
-            <td><span class="link">Nürnberger Str. (B14)/Bahnhofstr quer</span></td>
-            <td><span class="link">Termine 12–14 (01.05.2026 – 02.06.2026)</span></td>
-            <td>02.04.2026</td>
-            <td>
-              <div class="status provider-check">
-                <span class="icon">⏳</span> Anbieterfreigabe steht aus
-              </div>
-            </td>
-            <td><button class="btn btn-sm" disabled style="opacity:.4;">Druckfreigabe erteilen</button></td>
-          </tr>
-        </tbody>
-      </table></div>
-    </div>
-  </div>
-
-  <div class="annotation">
-    <span class="ann-icon">💡</span>
-    <div>
-      Beide Buttons koexistieren immer in derselben Zeile. <strong>„Druckfreigabe erteilen"</strong> → kein Modal, Freigabe wird sofort erteilt (frühe aktive Freigabe). <strong>„Nicht freigeben…"</strong> → öffnet Bestätigungs-Modal (Screen 3b). Screen 3 zeigt denselben Zustand. Anschließend erscheint folgende Toast-Meldung:
-      <div class="toast-demo">
-        <span class="toast-icon">✓</span>
-        <div>
-          <div class="toast-label">Bestätigung</div>
-          Druckfreigabe erfolgreich erteilt.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-     SCREEN 3 — Motivübersicht: window open, Kunde, Option B
-════════════════════════════════════════════════════ -->
-<div class="screen" id="screen-2">
-  <div class="screen-title">Screen 3 — Geändert</div>
-  <div class="screen-subtitle">Motivübersicht — Opt-Out-Fenster läuft (Kunde — Standard)</div>
-  <div class="screen-desc">
-    Standard-Ansicht im Opt-Out-Fenster. Status zeigt automatische Freigabe. Nur "Nicht freigeben"-Button sichtbar — kein separater Freigabe-Button. Klick auf "Nicht freigeben" öffnet Bestätigungs-Modal (Screen 3b).
-    <span class="changed-tag">GEÄNDERT: Option B finalisiert</span>
-  </div>
-
-  <div class="page-chrome">
-    <div class="page-header">
-      <div class="logo">crossvertise</div>
-      <div class="nav-items">
-        <span>Meine Kampagnen</span>
-        <span class="active">Motivübersicht</span>
-      </div>
-    </div>
-    <div class="page-body">
-      <div class="page-heading">Außenwerbung</div>
-      <div class="table-wrap"><table>
-        <thead>
-          <tr>
-            <th>Vorschau</th>
-            <th>Motivname</th>
-            <th>Zugeordnete Belegung(en)</th>
-            <th>Kampagnenzeitraum</th>
-            <th>Unterlagenschluss</th>
-            <th>Status</th>
-            <th>Informationen</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><div class="thumb">Vorschau</div></td>
-            <td>
-              <div class="motif-name">M1_GODELMANNGmb… <span class="dl-icon">⬇</span></div>
-            </td>
-            <td><span class="link">Barteläcker 13 Edeka Wiesmeth</span></td>
-            <td><span class="link">Termine 11–12 (21.04.2026 – 12.05.2026)</span></td>
-            <td>10.04.2026</td>
-            <td>
-              <div class="status auto-pending">
-                <span class="icon">⏳</span>
-                Autom. Druckfreigabe am <strong>10.04.2026</strong>
-              </div>
-            </td>
-            <td>
-              <button class="btn btn-sm">Druckfreigabe erteilen</button>
-              <div style="margin-top:5px;"><button class="btn btn-sm" style="font-size:11px; color:var(--text-light);">Nicht freigeben…</button></div>
+              <button class="btn btn-sm" style="font-size:11px; color:var(--text-light);">Nicht freigeben…</button>
             </td>
           </tr>
           <tr>
@@ -780,7 +690,7 @@
   <div class="annotation">
     <span class="ann-icon">💡</span>
     <div>
-      <strong>Identischer Zustand wie Screen 2.</strong> Beide Buttons koexistieren immer: „Druckfreigabe erteilen" (frühe aktive Freigabe, kein Modal) und „Nicht freigeben…" (öffnet Bestätigungs-Modal, Screen 3b). Screens 2 und 3 können im finalen Design zu einem Screen zusammengeführt werden.
+      Einzige Kunden-Aktion im Opt-Out-Fenster: <strong>„Nicht freigeben…"</strong> → öffnet Bestätigungs-Modal (Screen 3b). Kein separater „Druckfreigabe erteilen"-Button — die Freigabe erfolgt automatisch bei Ablauf des Fensters.
     </div>
   </div>
 </div>
