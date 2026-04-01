@@ -503,6 +503,69 @@
     }
     .toast-demo .toast-icon { color: var(--green); font-size: 14px; }
     .toast-demo .toast-label { font-size: 10px; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 1px; }
+
+.sticky-footer {
+  position: sticky;
+  bottom: 0;
+  background: #fff8e1;
+  border-top: 2px solid #f59e0b;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 50;
+  font-size: 13px;
+}
+.sticky-footer .sticky-icon { font-size: 16px; }
+.sticky-footer .sticky-text { flex: 1; color: var(--text); }
+.sticky-footer .sticky-text strong { color: #b45309; }
+
+    /* ── Browser chrome (new screens) ── */
+    .browser-chrome { background: var(--white); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .browser-bar { background: #f0f0f0; border-bottom: 1px solid var(--border); padding: 8px 12px; display: flex; align-items: center; gap: 6px; }
+    .browser-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .browser-dot.red    { background: #ff5f57; }
+    .browser-dot.amber  { background: #febc2e; }
+    .browser-dot.green  { background: #28c840; }
+    .browser-url { margin-left: 10px; font-size: 11px; color: var(--text-light); background: var(--white); border: 1px solid var(--border); border-radius: 3px; padding: 2px 10px; flex: 1; }
+    .browser-content { padding: 20px 24px; }
+
+    /* ── Screen label (new screens) ── */
+    .screen-label { font-size: 11px; font-weight: bold; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+
+    /* ── Page title / subtitle (new screens) ── */
+    .page-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .page-subtitle { font-size: 13px; color: var(--text-light); margin-bottom: 20px; }
+
+    /* ── Badges (new screens) ── */
+    .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; border: 1px solid transparent; }
+    .badge-green { background: #e6f4d7; color: #3a7000; border-color: #97BF0D; }
+
+    /* ── Druckauftrag sections ─────────────────────────── */
+    .da-section { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 24px; overflow: hidden; }
+    .da-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; gap: 16px; flex-wrap: wrap; }
+    .da-header.green  { background: #f0f7e5; border-bottom: 2px solid #97BF0D; }
+    .da-header.amber  { background: #fff8e1; border-bottom: 2px solid #f59e0b; }
+    .da-header.red    { background: #fef2f2; border-bottom: 2px solid #d62512; }
+    .da-header.gray   { background: #f5f5f5; border-bottom: 2px solid #aaa; }
+    .da-header-left { display: flex; flex-direction: column; gap: 4px; }
+    .da-header-title { font-weight: 600; font-size: 14px; }
+    .da-header-subtitle { font-size: 12px; color: var(--text-muted); }
+    .da-header-right { display: flex; align-items: center; gap: 8px; }
+    .da-status-pill { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 12px; }
+    .da-status-pill.green  { background: #e6f4d7; color: #3a7000; }
+    .da-status-pill.amber  { background: #fef3c7; color: #92400e; }
+    .da-status-pill.red    { background: #fde8e8; color: #991b1b; }
+    .da-countdown { font-size: 12px; }
+    .da-countdown.warn { color: #92400e; font-weight: 600; }
+    .da-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .da-table th { background: #f9fafb; padding: 8px 12px; text-align: left; font-weight: 500; font-size: 12px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .da-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .da-table tr:last-child td { border-bottom: none; }
+    .da-missing-row td { background: #fef2f2; color: #991b1b; font-style: italic; }
+    .da-info-box { margin: 12px 16px; background: #fff8e1; border-left: 3px solid #f59e0b; padding: 10px 14px; border-radius: 0 4px 4px 0; font-size: 12px; color: #78350f; }
+    .da-info-box.blue { background: #eff6ff; border-left-color: #3b82f6; color: #1e40af; }
+    .da-info-box strong { display: block; margin-bottom: 4px; }
   </style>
 </head>
 <body>
@@ -517,18 +580,88 @@
 
 <!-- Tab navigation -->
 <div class="tab-nav">
-  <button class="active" onclick="showTab(0)">1 — Motivzuordnung abschließen + Consent Modal</button>
-  <button onclick="showTab(1)">2 — Motivübersicht: Opt-Out-Fenster (Kunde)</button>
-  <button onclick="showTab(2)">3b — Bestätigungs-Modal: Nicht freigeben</button>
-  <button onclick="showTab(3)">4 — Motivübersicht: Opt-Out-Fenster (Manager)</button>
-  <button onclick="showTab(4)">5 — Motivübersicht: Freigegeben</button>
-  <button onclick="showTab(5)">6 — Motivübersicht: Freigabe abgelehnt</button>
+  <button class="active" onclick="showTab(0)">1 — Motivzuordnung: Zuordnung ausstehend</button>
+  <button onclick="showTab(1)">2 — Motivzuordnung: Consent Modal</button>
+  <button onclick="showTab(2)">3 — Motivübersicht: Opt-Out-Fenster (Kunde)</button>
+  <button onclick="showTab(3)">3b — Bestätigungs-Modal: Nicht freigeben</button>
+  <button onclick="showTab(4)">4 — Motivübersicht: Opt-Out-Fenster (Manager)</button>
+  <button onclick="showTab(5)">5 — Motivübersicht: Freigegeben</button>
+  <button onclick="showTab(6)">6 — Motivübersicht: Freigabe abgelehnt</button>
+  <button onclick="showTab(7)" data-tab="7">7 — Motivübersicht NEU: 2 Druckaufträge (ausstehend)</button>
+  <button onclick="showTab(8)" data-tab="8">8 — Motivübersicht NEU: 1 Druckauftrag (alle bereit)</button>
+  <button onclick="showTab(9)" data-tab="9">9 — Motivübersicht NEU: Fallback (kein PO)</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SCREEN 1 — Motivzuordnung: Zuordnung ausstehend (Sticky Footer)
+════════════════════════════════════════════════ -->
+<div class="screen active" id="screen-00">
+  <div class="screen-title">Screen 1 — Neu</div>
+  <div class="screen-subtitle">Motivzuordnung — Motive zugeordnet, Zuordnung noch nicht abgeschlossen</div>
+  <div class="screen-desc">
+    Kunde hat Motive zugeordnet, aber noch nicht auf „Motivzuordnung abschließen“ geklickt. Am unteren Rand der Seite erscheint eine persistente Warnleiste, die den nächsten Schritt einfordert.
+    <span class="new-tag">NEU: Sticky Footer / Dirty-State-Indikator</span>
+  </div>
+
+  <div class="page-chrome">
+    <div class="page-header">
+      <div class="logo">crossvertise</div>
+      <div class="nav-items">
+        <span>Meine Kampagnen</span>
+        <span class="active">Motivzuordnung</span>
+      </div>
+    </div>
+    <div class="page-body">
+      <div class="page-heading">Motivzuordnung — Außenwerbung</div>
+      <div class="table-wrap"><table class="assign-table">
+        <thead>
+          <tr>
+            <th class="radio-col"></th>
+            <th>Motiv</th>
+            <th>Belegung</th>
+            <th>Zeitraum</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="radio-col"><input type="radio" checked></td>
+            <td><div class="motif-name">M1_GODELMANNGmb… <span class="dl-icon">⬇</span></div></td>
+            <td><span class="link">Barteläcker 13 Edeka Wiesmeth</span></td>
+            <td>Termine 11–12 (21.04.–12.05.2026)</td>
+            <td><span style="color:var(--green); font-size:12px;">✓ Zugeordnet</span></td>
+          </tr>
+          <tr>
+            <td class="radio-col"><input type="radio" checked></td>
+            <td><div class="motif-name">M2_GODELMANNGmb… <span class="dl-icon">⬇</span></div></td>
+            <td><span class="link">Nürnberger Str. (B14)/Bahnhofstr quer</span></td>
+            <td>Termine 12–14 (01.05.–02.06.2026)</td>
+            <td><span style="color:var(--green); font-size:12px;">✓ Zugeordnet</span></td>
+          </tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- Sticky Footer -->
+    <div class="sticky-footer">
+      <span class="sticky-icon">⚠️</span>
+      <span class="sticky-text"><strong>Zuordnung noch nicht abgeschlossen</strong> — Änderungen wurden noch nicht gespeichert.</span>
+      <button class="btn btn-primary">Motivzuordnung abschließen →</button>
+    </div>
+  </div>
+
+  <div class="annotation">
+    <span class="ann-icon">💡</span>
+    <div>
+      Der Sticky Footer erscheint sobald mindestens ein Motiv zugeordnet wurde, aber „Motivzuordnung abschließen“ noch nicht geklickt wurde. Er bleibt beim Scrollen immer sichtbar und verschwindet erst nach dem Klick. Klick auf den Button öffnet das Consent Modal (Screen 2).
+    </div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════
      SCREEN 1 — AssignMotifs + Consent Modal
 ════════════════════════════════════════════════════ -->
-<div class="screen active" id="screen-0">
+<div class="screen" id="screen-0">
   <div class="screen-title">Screen 1 — Neu</div>
   <div class="screen-subtitle">Motivzuordnung abschließen + Zustimmungs-Modal</div>
   <div class="screen-desc">
@@ -1021,6 +1154,264 @@
     <span class="ann-icon">💡</span>
     <div>
       Kein CTA-Button in der Tabelle nötig — auf der echten Seite befindet sich unterhalb der Tabelle ein Button <strong>„Jetzt Motive zuordnen"</strong>, der den nächsten Schritt klar kommuniziert.
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SCREEN 7 — Motivübersicht NEU: 2 Druckaufträge (ausstehend) -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-mo-1" data-tab="7">
+  <div class="screen-label">Screen 7 — Motivübersicht NEU: Gruppierung nach Druckauftrag (2 Druckaufträge, 1 ausstehend)</div>
+
+  <div class="browser-chrome">
+    <div class="browser-bar">
+      <span class="browser-dot red"></span><span class="browser-dot amber"></span><span class="browser-dot green"></span>
+      <span class="browser-url">qa.crossvertise.com › meine-kampagnen › auftrag › 9921512 › motive</span>
+    </div>
+    <div class="browser-content">
+
+      <div class="page-header">
+        <h1 class="page-title">Motive prüfen &amp; freigeben</h1>
+        <p class="page-subtitle">Musterkampagne GmbH · Auftrag #9921512</p>
+      </div>
+
+      <!-- Druckauftrag 1: bereits bereit (grün) -->
+      <div class="da-section">
+        <div class="da-header green">
+          <div class="da-header-left">
+            <span class="da-header-title">Druckauftrag 1 · Dekaden 9–11 · 24.03. – 07.04.2026</span>
+            <span class="da-header-subtitle">⏰ Unterlagenschluss: 05.03.2026 · abgelaufen</span>
+          </div>
+          <div class="da-header-right">
+            <span class="da-status-pill green">✅ Alle Motive freigegeben</span>
+          </div>
+        </div>
+        <table class="da-table">
+          <thead>
+            <tr>
+              <th style="width:60px">Vorschau</th>
+              <th>Motivname</th>
+              <th>Zugeordnete Belegung(en)</th>
+              <th>Status</th>
+              <th>Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div style="width:48px;height:36px;background:#e8e8e8;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888">Bild</div></td>
+              <td>Motiv_A_Musterfirma</td>
+              <td>Musterstraße 12, Musterstadt (1/2)<br><span style="color:var(--text-muted);font-size:11px">Beispielweg 5, Musterstadt (1/2)</span></td>
+              <td><span class="badge badge-green">✅ Freigegeben</span></td>
+              <td style="font-size:11px;color:var(--text-muted)">05.03.2026</td>
+            </tr>
+            <tr>
+              <td><div style="width:48px;height:36px;background:#e8e8e8;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888">Bild</div></td>
+              <td>Motiv_B_Musterfirma</td>
+              <td>Hauptplatz 3, Musterstadt (1/1)</td>
+              <td><span class="badge badge-green">✅ Freigegeben</span></td>
+              <td style="font-size:11px;color:var(--text-muted)">04.03.2026</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Druckauftrag 2: ausstehend (amber) -->
+      <div class="da-section">
+        <div class="da-header amber">
+          <div class="da-header-left">
+            <span class="da-header-title">Druckauftrag 2 · Dekaden 12–17 · 01.05. – 02.06.2026</span>
+            <span class="da-header-subtitle">⏰ Unterlagenschluss: 02.04.2026</span>
+          </div>
+          <div class="da-header-right">
+            <span class="da-countdown warn">⚠️ Noch 1 Werktag</span>
+            <span class="da-status-pill amber">1 von 2 ausstehend</span>
+          </div>
+        </div>
+
+        <div class="da-info-box">
+          <strong>ℹ️ Hinweis zum Zusammendruck</strong>
+          Dieser Druckauftrag umfasst mehrere Kampagnenzeiträume gleichzeitig. Der Zusammendruck wurde so geplant, um die Druckkosten für Sie zu optimieren. Damit der Druck pünktlich startet, müssen <strong>alle Motive dieses Auftrags bis zum 02.04.2026</strong> freigegeben sein. Fehlt ein Motiv, muss der Druckauftrag ggf. aufgesplittet werden — das kann zu <strong>Mehrkosten</strong> führen.
+        </div>
+
+        <table class="da-table">
+          <thead>
+            <tr>
+              <th style="width:60px">Vorschau</th>
+              <th>Motivname</th>
+              <th>Zugeordnete Belegung(en)</th>
+              <th>Status</th>
+              <th>Aktion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div style="width:48px;height:36px;background:#e8e8e8;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888">Bild</div></td>
+              <td>Motiv_B_Musterfirma</td>
+              <td>Hauptplatz 3, Musterstadt (1/1)</td>
+              <td><span class="badge badge-green">✅ Freigegeben</span></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><div style="width:48px;height:36px;background:#f3f3f3;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#aaa">—</div></td>
+              <td>Motiv_C_Test</td>
+              <td>Nordring 8, Musterstadt (1/1)</td>
+              <td><span class="badge" style="background:#fff8e1;color:#92400e;border:1px solid #f59e0b">⏳ Autom. 02.04.2026</span></td>
+              <td><button class="btn btn-sm" style="font-size:11px">Nicht freigeben…</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="annotation">
+        <strong>Wireframe-Anmerkung:</strong> Die Gruppierung nach Druckauftrag ersetzt die bisherige MediumType-Gruppierung. Motive, die in mehreren Druckaufträgen vorkommen (z.B. Motiv_B), erscheinen in jeder zugehörigen Sektion. Status-Ampel im Header: 🟢 alle freigegeben · 🟡 ausstehend · 🔴 überfällig · ⚪ kein PO vorhanden. Der Hinweistext zum Zusammendruck wird ausgeblendet, sobald alle Motive des Druckauftrags freigegeben sind.
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SCREEN 8 — Motivübersicht NEU: 1 Druckauftrag (alle bereit) -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-mo-2" data-tab="8">
+  <div class="screen-label">Screen 8 — Motivübersicht NEU: 1 Druckauftrag · alle Motive freigegeben</div>
+
+  <div class="browser-chrome">
+    <div class="browser-bar">
+      <span class="browser-dot red"></span><span class="browser-dot amber"></span><span class="browser-dot green"></span>
+      <span class="browser-url">qa.crossvertise.com › meine-kampagnen › auftrag › 9921512 › motive</span>
+    </div>
+    <div class="browser-content">
+
+      <div class="page-header">
+        <h1 class="page-title">Motive prüfen &amp; freigeben</h1>
+        <p class="page-subtitle">Beispiel GmbH · Auftrag #1234567</p>
+      </div>
+
+      <div class="da-section">
+        <div class="da-header green">
+          <div class="da-header-left">
+            <span class="da-header-title">Druckauftrag 1 · Dekaden 12–14 · 01.05. – 02.06.2026</span>
+            <span class="da-header-subtitle">⏰ Unterlagenschluss: 02.04.2026</span>
+          </div>
+          <div class="da-header-right">
+            <span class="da-status-pill green">✅ Druckauftrag bereit — alle Motive freigegeben</span>
+          </div>
+        </div>
+        <table class="da-table">
+          <thead>
+            <tr>
+              <th style="width:60px">Vorschau</th>
+              <th>Motivname</th>
+              <th>Zugeordnete Belegung(en)</th>
+              <th>Status</th>
+              <th>Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div style="width:48px;height:36px;background:#e8e8e8;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888">Bild</div></td>
+              <td>Motiv_Sommer_2026</td>
+              <td>Musterstraße 12, Musterstadt (1/2)<br><span style="color:var(--text-muted);font-size:11px">Beispielweg 5, Musterstadt (1/2)</span></td>
+              <td><span class="badge badge-green">✅ Freigegeben</span></td>
+              <td style="font-size:11px;color:var(--text-muted)">28.03.2026</td>
+            </tr>
+            <tr>
+              <td><div style="width:48px;height:36px;background:#e8e8e8;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888">Bild</div></td>
+              <td>Motiv_Sommer_Variante</td>
+              <td>Hauptplatz 3, Musterstadt (1/1)</td>
+              <td><span class="badge badge-green">✅ Freigegeben</span></td>
+              <td style="font-size:11px;color:var(--text-muted)">27.03.2026</td>
+            </tr>
+            <tr>
+              <td><div style="width:48px;height:36px;background:#e8e8e8;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888">Bild</div></td>
+              <td>Motiv_Herbst_2026</td>
+              <td>Nordring 8, Musterstadt (1/1)</td>
+              <td><span class="badge badge-green">✅ Freigegeben</span></td>
+              <td style="font-size:11px;color:var(--text-muted)">29.03.2026</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="annotation">
+        <strong>Wireframe-Anmerkung:</strong> Zustand nach vollständiger Freigabe aller Motive. Zusammendruck-Hinweisbox wird nicht angezeigt (alle freigegeben). Header zeigt grüne Ampel + "Druckauftrag bereit". "Nicht freigeben…"-Buttons sind nicht sichtbar, da Status bereits Approved.
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SCREEN 9 — Motivübersicht NEU: Fallback (kein PO vorhanden) -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-mo-3" data-tab="9">
+  <div class="screen-label">Screen 9 — Motivübersicht NEU: Fallback — kein Staudigl Druckauftrag vorhanden</div>
+
+  <div class="browser-chrome">
+    <div class="browser-bar">
+      <span class="browser-dot red"></span><span class="browser-dot amber"></span><span class="browser-dot green"></span>
+      <span class="browser-url">qa.crossvertise.com › meine-kampagnen › auftrag › 9921512 › motive</span>
+    </div>
+    <div class="browser-content">
+
+      <div class="page-header">
+        <h1 class="page-title">Motive prüfen &amp; freigeben</h1>
+        <p class="page-subtitle">Testfirma AG · Auftrag #7654321</p>
+      </div>
+
+      <div class="da-section">
+        <div class="da-header gray">
+          <div class="da-header-left">
+            <span class="da-header-title">Außenwerbung</span>
+            <span class="da-header-subtitle">⚪ Druckauftrag noch nicht erstellt</span>
+          </div>
+          <div class="da-header-right">
+            <span class="da-status-pill" style="background:#f0f0f0;color:#555">Ausstehend</span>
+          </div>
+        </div>
+
+        <div class="da-info-box blue">
+          <strong>ℹ️ Druckauftrag noch nicht verfügbar</strong>
+          Der Staudigl Druckauftrag für diese Belegungen wurde noch nicht erstellt. Die Gruppierung nach Druckauftrag wird automatisch angezeigt, sobald der Auftrag vorliegt. Bis dahin werden die Motive nach Medientyp gruppiert angezeigt.
+        </div>
+
+        <table class="da-table">
+          <thead>
+            <tr>
+              <th style="width:60px">Vorschau</th>
+              <th>Motivname</th>
+              <th>Zugeordnete Belegung(en)</th>
+              <th>Kampagnenzeitraum</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div style="width:48px;height:36px;background:#e8e8e8;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888">Bild</div></td>
+              <td>Motiv_Frühling</td>
+              <td>Musterstraße 12, Musterstadt (1/1)</td>
+              <td style="font-size:12px;color:var(--text-muted)">01.05. – 10.05.2026</td>
+              <td><span class="badge" style="background:#f5f5f5;color:#555;border:1px solid #ddd">Anbieterfreigabe steht aus</span></td>
+            </tr>
+            <tr>
+              <td><div style="width:48px;height:36px;background:#e8e8e8;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888">Bild</div></td>
+              <td>Motiv_Frühling_B</td>
+              <td>Hauptplatz 7, Musterstadt (1/1)</td>
+              <td style="font-size:12px;color:var(--text-muted)">01.05. – 10.05.2026</td>
+              <td><span class="badge" style="background:#f5f5f5;color:#555;border:1px solid #ddd">Anbieterfreigabe steht aus</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="annotation">
+        <strong>Wireframe-Anmerkung:</strong> Fallback-Zustand wenn kein Staudigl PO vorhanden. Grauer Header mit "Druckauftrag noch nicht erstellt". Spalte "Kampagnenzeitraum" bleibt sichtbar (aus bisheriger MediumType-Gruppierung). Blauer Info-Hinweis erklärt den Zustand. Keine DU-Termin-Anzeige möglich. Sobald PO eingeht → automatische Umstellung auf Druckauftrag-Gruppiertansicht (Screens 7/8).
+      </div>
+
     </div>
   </div>
 </div>
