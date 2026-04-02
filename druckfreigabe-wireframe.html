@@ -589,7 +589,7 @@
   <button onclick="showTab(6)">6 — Motivübersicht: Freigabe abgelehnt</button>
   <button onclick="showTab(7)" data-tab="7">7 — Motivübersicht NEU: 2 Druckaufträge (ausstehend)</button>
   <button onclick="showTab(8)" data-tab="8">8 — Motivübersicht NEU: 1 Druckauftrag (alle bereit)</button>
-  <button onclick="showTab(9)" data-tab="9">9 — Motivübersicht NEU: Fallback (kein PO)</button>
+  <button onclick="showTab(9)" data-tab="9">9 — Motivübersicht NEU: Mischauftrag (OOH + Online + Prospekt)</button>
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -1345,71 +1345,129 @@
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- SCREEN 9 — Motivübersicht NEU: Fallback (kein PO vorhanden) -->
-<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SCREEN 9 — Motivübersicht NEU: Mischauftrag (OOH + Online + Prospekt) -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
 <div class="screen" id="screen-mo-3" data-tab="9">
-  <div class="screen-label">Screen 9 — Motivübersicht NEU: Fallback — kein Staudigl Druckauftrag vorhanden</div>
+  <div class="screen-label">Screen 9 — Motivübersicht NEU: Mischauftrag — OOH mit Druckauftrag-Gruppierung + Online + Prospekt</div>
 
   <div class="browser-chrome">
     <div class="browser-bar">
       <span class="browser-dot red"></span><span class="browser-dot amber"></span><span class="browser-dot green"></span>
-      <span class="browser-url">qa.crossvertise.com › meine-kampagnen › auftrag › 9921512 › motive</span>
+      <span class="browser-url">qa.crossvertise.com › meine-kampagnen › auftrag › 60060 › motive</span>
     </div>
     <div class="browser-content">
 
       <div class="page-header">
         <h1 class="page-title">Motive prüfen &amp; freigeben</h1>
-        <p class="page-subtitle">Testfirma AG · Auftrag #7654321</p>
+        <p class="page-subtitle">Musterfirma AG · Auftrag #60060</p>
       </div>
 
+      <!-- OOH: neue Druckauftrag-Gruppierung -->
       <div class="da-section">
-        <div class="da-header gray">
+        <div class="da-header amber">
           <div class="da-header-left">
-            <span class="da-header-title">Außenwerbung</span>
-            <span class="da-header-subtitle">⚪ Druckauftrag noch nicht erstellt</span>
+            <span class="da-header-title">Druckauftrag 1 · Dekaden 20–21 · 24.07. – 04.08.2026</span>
+            <span class="da-header-subtitle">⏰ Unterlagenschluss: 29.06.2026</span>
           </div>
           <div class="da-header-right">
-            <span class="da-status-pill" style="background:#f0f0f0;color:#555">Ausstehend</span>
+            <span class="da-countdown warn">⚠️ Noch 3 Werktage</span>
+            <span class="da-status-pill amber">1 von 2 ausstehend</span>
           </div>
         </div>
-
-        <div class="da-info-box blue">
-          <strong>ℹ️ Druckauftrag noch nicht verfügbar</strong>
-          Der Staudigl Druckauftrag für diese Belegungen wurde noch nicht erstellt. Die Gruppierung nach Druckauftrag wird automatisch angezeigt, sobald der Auftrag vorliegt. Bis dahin werden die Motive nach Medientyp gruppiert angezeigt.
-        </div>
-
         <table class="da-table">
           <thead>
             <tr>
               <th style="width:60px">Vorschau</th>
               <th>Motivname</th>
               <th>Zugeordnete Belegung(en)</th>
-              <th>Kampagnenzeitraum</th>
               <th>Status</th>
+              <th>Aktion</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><div style="width:48px;height:36px;background:#e8e8e8;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888">Bild</div></td>
-              <td>Motiv_Frühling</td>
-              <td>Musterstraße 12, Musterstadt (1/1)</td>
-              <td style="font-size:12px;color:var(--text-muted)">01.05. – 10.05.2026</td>
-              <td><span class="badge" style="background:#f5f5f5;color:#555;border:1px solid #ddd">Anbieterfreigabe steht aus</span></td>
+              <td>Beispiel 6/1</td>
+              <td>Bischof-Fischer-Str. b. 26 (1/1)</td>
+              <td><span class="badge badge-green">✅ Freigegeben</span></td>
+              <td></td>
             </tr>
             <tr>
               <td><div style="width:48px;height:36px;background:#e8e8e8;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888">Bild</div></td>
-              <td>Motiv_Frühling_B</td>
-              <td>Hauptplatz 7, Musterstadt (1/1)</td>
-              <td style="font-size:12px;color:var(--text-muted)">01.05. – 10.05.2026</td>
-              <td><span class="badge" style="background:#f5f5f5;color:#555;border:1px solid #ddd">Anbieterfreigabe steht aus</span></td>
+              <td>Smoke-Test-2026-04-01</td>
+              <td>Johann-Gottfried-Pahl-Str. 15 (1/1)</td>
+              <td><span class="badge" style="background:#fff8e1;color:#92400e;border:1px solid #f59e0b">⏳ Autom. 29.06.2026</span></td>
+              <td><button class="btn btn-sm" style="font-size:11px">Nicht freigeben…</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Online: bestehende MediumType-Gruppierung (unverändert) -->
+      <div style="margin-bottom:24px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <h2 style="font-size:18px;font-weight:600;margin:0;color:var(--text)">Online</h2>
+          <div style="font-size:12px;color:var(--text-muted)">Sortieren nach
+            <select style="font-size:12px;border:1px solid var(--border);border-radius:4px;padding:2px 6px;margin-left:4px"><option>Motivname</option></select>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px;font-weight:500">Nicht zugeordnete Motive/Platzhalter</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;border:1px solid var(--border);border-radius:4px;overflow:hidden">
+          <thead>
+            <tr style="background:#f8f8f8;border-bottom:2px solid var(--border);text-align:left">
+              <th style="padding:8px 12px;font-weight:600">Platzhalternamen</th>
+              <th style="padding:8px 12px;font-weight:600">Zugeordnete Belegung(en)</th>
+              <th style="padding:8px 12px;font-weight:600">Kampagnenzeitraum</th>
+              <th style="padding:8px 12px;font-weight:600">Unterlagenschluss</th>
+              <th style="padding:8px 12px;font-weight:600">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 12px;color:var(--brand)">Platzhalter für fehlendes Motiv</td>
+              <td style="padding:8px 12px">Web Radio</td>
+              <td style="padding:8px 12px">18.05.2026</td>
+              <td style="padding:8px 12px"></td>
+              <td style="padding:8px 12px;color:var(--text-muted)">Nicht zugeordnet</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Prospekt: bestehende MediumType-Gruppierung (unverändert) -->
+      <div style="margin-bottom:24px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <h2 style="font-size:18px;font-weight:600;margin:0;color:var(--text)">Prospekt</h2>
+          <div style="font-size:12px;color:var(--text-muted)">Sortieren nach
+            <select style="font-size:12px;border:1px solid var(--border);border-radius:4px;padding:2px 6px;margin-left:4px"><option>Motivname</option></select>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px;font-weight:500">Nicht zugeordnete Motive/Platzhalter</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;border:1px solid var(--border);border-radius:4px;overflow:hidden">
+          <thead>
+            <tr style="background:#f8f8f8;border-bottom:2px solid var(--border);text-align:left">
+              <th style="padding:8px 12px;font-weight:600">Platzhalternamen</th>
+              <th style="padding:8px 12px;font-weight:600">Zugeordnete Belegung(en)</th>
+              <th style="padding:8px 12px;font-weight:600">Kampagnenzeitraum</th>
+              <th style="padding:8px 12px;font-weight:600">Unterlagenschluss</th>
+              <th style="padding:8px 12px;font-weight:600">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 12px;color:var(--brand)">Platzhalter für fehlendes Motiv</td>
+              <td style="padding:8px 12px">Hallo München</td>
+              <td style="padding:8px 12px">20.06.2026</td>
+              <td style="padding:8px 12px;color:#dc2626;font-weight:500">05.06.2026</td>
+              <td style="padding:8px 12px;color:var(--text-muted)">Nicht zugeordnet</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <div class="annotation">
-        <strong>Wireframe-Anmerkung:</strong> Fallback-Zustand wenn kein Staudigl PO vorhanden. Grauer Header mit "Druckauftrag noch nicht erstellt". Spalte "Kampagnenzeitraum" bleibt sichtbar (aus bisheriger MediumType-Gruppierung). Blauer Info-Hinweis erklärt den Zustand. Keine DU-Termin-Anzeige möglich. Sobald PO eingeht → automatische Umstellung auf Druckauftrag-Gruppiertansicht (Screens 7/8).
+        <strong>Wireframe-Anmerkung:</strong> Mischauftrag (OOH + andere Medien). Nur der OOH-Abschnitt erhält die neue Druckauftrag-Gruppierung (DA-Sektionen mit farbigem Header und DU-Termin). Online- und Prospekt-Abschnitte werden unverändert im bisherigen Format angezeigt — MediumType-Gruppierung ohne DA-Kontext, mit Platzhalter-Zeilen für fehlende Motive. Die Motivübersicht wird Kunden nur für Aufträge mit OOH-Anteil verlinkt; bei reinen Online-/Radio-/Kino-Aufträgen läuft der Flow ausschließlich über die Motivzuordnungsseite.
       </div>
 
     </div>
